@@ -3,18 +3,23 @@
 module Lib
     ( someFunc,
     	myfun,
-    	demo
+    	demo, testsp
     ) where
 
 
 import qualified Language.C.Inline as C
 import Foreign.C.Types
 import qualified Data.Vector.Storable as V
-
+import qualified Numeric.LinearAlgebra as LA
+import qualified Numeric.LinearAlgebra.Data as D
+import qualified Numeric.LinearAlgebra.Devel as D
 C.context (C.baseCtx <> C.vecCtx)
 
 C.include "<math.h>"
 C.include "<osqp/osqp.h>"
+
+
+testsp = D.mkSparse [((0,0), 3.0), ((1,1), 2.0)]
 
 
 
