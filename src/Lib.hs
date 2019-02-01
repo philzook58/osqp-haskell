@@ -18,7 +18,9 @@ C.include "<osqp/osqp.h>"
 
 
 testsp = D.mkSparse [((0,0), 3.0), ((1,1), 2.0)]
+testcsr = D.mkCSR [((0,0), 3.0), ((1,1), 2.0)]
 
+-- getCSR (D.SparseR csr ncols nrows) = 
 
 assocVec :: (Num a, Ord a) => [a] -> [(Int,a)] 
 assocVec v = filter (\(_,x) -> x /= 0) (zipWith (,) [0..] v)

@@ -28,7 +28,9 @@ library:
   - inline-c
   - vector
   - hmatrix 
-  extra-libraries: osqp
+  extra-libraries: 
+  - osqp
+
 
 
 executables:
@@ -41,6 +43,8 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - osqp
+
+
 
 tests:
   osqp-test:
