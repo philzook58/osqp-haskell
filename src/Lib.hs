@@ -1,10 +1,6 @@
 {-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE TemplateHaskell #-}
-module Lib
-    ( someFunc,
-    	myfun,
-    	demo, testsp
-    ) where
+module Lib where
 
 
 import qualified Language.C.Inline as C
@@ -20,12 +16,14 @@ C.include "<osqp/osqp.h>"
 
 
 testsp = D.mkSparse [((0,0), 3.0), ((1,1), 2.0)]
+testcsr = D.mkCSR [((0,0), 3.0), ((1,1), 2.0)]
+
+-- getCSR (D.SparseR csr ncols nrows) = 
 
 
 
-
-main :: IO ()
-main = do
+fred :: IO ()
+fred = do
   x <- [C.exp| double{ cos(1) } |]
   print x
 someFunc :: IO ()
